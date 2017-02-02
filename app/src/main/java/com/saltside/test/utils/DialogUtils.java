@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.WindowManager;
 
 import com.saltside.test.R;
 
@@ -13,27 +14,31 @@ import com.saltside.test.R;
 
 public class DialogUtils {
 
-    private static ProgressDialog mProgressDialog;
+    private static ProgressDialog sProgressDialog;
 
-    public static synchronized void showProgressDialog(Context context) {
-        try {
-            if (mProgressDialog == null) {
-                mProgressDialog = new ProgressDialog(context);
-                mProgressDialog.setCancelable(false);
-                mProgressDialog.setMessage(context.getString(R.string.loading));
+    public static synchronized void showProgressDialog(Activity activity) {
+        if (sProgressDialog != null && sProgressDialog.isShowing())
+            return;
+
+        if (activity != null) {
+            sProgressDialog = new ProgressDialog(activity);
+            sProgressDialog.setMessage(activity.getString(R.string.loading));
+            sProgressDialog.setCanceledOnTouchOutside(false);
+            sProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            sProgressDialog.setCancelable(false);
+            try {
+                sProgressDialog.show();
+            } catch (WindowManager.BadTokenException e) {
+                e.printStackTrace();
             }
-            if (context != null && !((Activity) context).isFinishing() && !mProgressDialog.isShowing()) {
-                mProgressDialog.show();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
     public static synchronized void cancelProgressDialog() {
         try {
-            if (mProgressDialog != null && mProgressDialog.isShowing()) {
-                mProgressDialog.dismiss();
+            if (sProgressDialog != null && sProgressDialog.isShowing()) {
+                sProgressDialog.dismiss();
+                sProgressDialog = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

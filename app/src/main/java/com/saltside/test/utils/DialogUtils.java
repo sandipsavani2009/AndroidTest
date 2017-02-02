@@ -1,5 +1,6 @@
 package com.saltside.test.utils;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,9 +18,11 @@ public class DialogUtils {
     public static synchronized void showProgressDialog(Context context) {
         try {
             if (mProgressDialog == null) {
-                mProgressDialog = new ProgressDialog(context, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+                mProgressDialog = new ProgressDialog(context);
+                mProgressDialog.setCancelable(false);
+                mProgressDialog.setMessage(context.getString(R.string.loading));
             }
-            if (context != null && !mProgressDialog.isShowing()) {
+            if (context != null && !((Activity) context).isFinishing() && !mProgressDialog.isShowing()) {
                 mProgressDialog.show();
             }
         } catch (Exception e) {
@@ -30,7 +33,7 @@ public class DialogUtils {
     public static synchronized void cancelProgressDialog() {
         try {
             if (mProgressDialog != null && mProgressDialog.isShowing()) {
-                mProgressDialog.cancel();
+                mProgressDialog.dismiss();
             }
         } catch (Exception e) {
             e.printStackTrace();

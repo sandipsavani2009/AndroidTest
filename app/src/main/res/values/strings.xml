@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">SaltSide</string>
     <string name="splash">Splash Screen</string>
 
     <!-- Alert dialog -->
     <string name="alert_title">SaltSide</string>
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
+    <string name="loading">Loading ...</string>
 
     <string name="title">SaltSide</string>
     <string name="list">List</string>

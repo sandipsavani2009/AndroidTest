@@ -1,0 +1,53 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/common_padding"
+    android:background="@color/bg"
+    tools:context="com.saltside.test.ui.home.ItemDetailsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.saltside.test.ui.customViews.TestTextView
+            android:id="@+id/details_title_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            style="@style/TextViewTitle"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/common_margin"
+            android:layout_marginBottom="@dimen/common_margin">
+
+            <ImageView
+                android:id="@+id/details_imageView"
+                android:layout_width="@dimen/image_width"
+                android:layout_height="@dimen/image_height"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerInside"
+                />
+
+            <ProgressBar
+                android:id="@+id/imageProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+
+        </FrameLayout>
+
+        <com.saltside.test.ui.customViews.TestTextView
+            android:id="@+id/details_description_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextViewDescription"/>
+
+    </LinearLayout>
+
+</ScrollView>

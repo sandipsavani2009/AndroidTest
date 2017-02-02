@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="TextViewTitle">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/title</item>
+    </style>
+
+    <style name="TextViewDescription">
+        <item name="android:textSize">@dimen/description_text_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/description</item>
+    </style>
+
+</resources>

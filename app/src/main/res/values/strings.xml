@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="splash">Splash Screen</string>
+
+    <!-- Alert dialog -->
+    <string name="alert_title">SaltSide</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+
+    <string name="title">SaltSide</string>
+    <string name="list">List</string>
+    <string name="details">Details</string>
+
+    <!-- Network -->
+    <string name="no_internet">No internet, please try later.</string>
+    <string name="network_failure_msg">Something seems gone wrong with network connection, try later.</string>
+    <string name="common_unknown_error_dialog">Sorry, Something went wrong!</string>
+
+</resources>
